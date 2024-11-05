@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package MatrixMultiplicationService;
+
+// Оголошення повідомлення для представлення матриці
+message Matrix {
+    repeated Row rows = 1; // Список рядків матриці
+}
+
+// Оголошення повідомлення для рядка матриці
+message Row {
+    repeated double values = 1; // Список значень у рядку
+}
+
+// Оголошення повідомлення для запиту на множення
+message MultiplicationRequest {
+    Matrix matrixA = 1; // Перша матриця
+    Matrix matrixB = 2; // Друга матриця
+}
+
+// Оголошення повідомлення для відповіді, що містить результат
+message MultiplicationResponse {
+    Matrix result = 1; // Результуюча матриця після множення
+}
+
+// Оголошення сервісу для множення матриць
+service MatrixService {
+    rpc Multiply(MultiplicationRequest) returns (MultiplicationResponse); // Метод для множення матриць
+}

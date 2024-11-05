@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\MatrixMultiplicationService.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\MatrixMultiplicationService.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
